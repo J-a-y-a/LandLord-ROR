@@ -1,0 +1,751 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MILESTATESModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="District">
+          <Key>
+            <PropertyRef Name="DistrictCd" />
+          </Key>
+          <Property Name="DistrictId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DistrictCd" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="DistrictName" Type="varchar" MaxLength="50" />
+          <Property Name="StateCd" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Land_Title_Type_Master">
+          <Key>
+            <PropertyRef Name="LandTitleCode" />
+          </Key>
+          <Property Name="SNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LandTitleCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="LandTitleName" Type="varchar" MaxLength="100" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="LandLord">
+          <Key>
+            <PropertyRef Name="LandLordCode" />
+          </Key>
+          <Property Name="LandLordId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LLType" Type="varchar" MaxLength="15" />
+          <Property Name="LandLordCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="LLTitle" Type="varchar" MaxLength="10" />
+          <Property Name="LandLordName" Type="varchar" MaxLength="100" />
+          <Property Name="LL_Address1" Type="varchar" MaxLength="100" />
+          <Property Name="LL_Address2" Type="varchar" MaxLength="100" />
+          <Property Name="LL_State" Type="varchar" MaxLength="10" />
+          <Property Name="LL_District" Type="varchar" MaxLength="10" />
+          <Property Name="LL_Mandal" Type="varchar" MaxLength="10" />
+          <Property Name="LL_Village" Type="varchar" MaxLength="10" />
+          <Property Name="LL_PinCode" Type="varchar" MaxLength="8" />
+          <Property Name="LL_Phone1" Type="varchar" MaxLength="15" />
+          <Property Name="LL_Phone2" Type="varchar" MaxLength="15" />
+          <Property Name="LL_PAN" Type="varchar" MaxLength="10" />
+          <Property Name="LL_Aadhar" Type="varchar" MaxLength="12" />
+          <Property Name="LL_GST" Type="varchar" MaxLength="20" />
+          <Property Name="CIN" Type="varchar" MaxLength="25" />
+          <Property Name="DIN" Type="varchar" MaxLength="25" />
+          <Property Name="IncorporationDate" Type="datetime" />
+          <Property Name="LL_Mail" Type="varchar" MaxLength="25" />
+          <Property Name="D/O" Type="varchar" MaxLength="50" />
+          <Property Name="Age" Type="int" />
+          <Property Name="Occupation" Type="varchar" MaxLength="50" />
+          <Property Name="Designation" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="varchar(max)" />
+          <Property Name="Rep_Off" Type="varchar" MaxLength="10" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="LandLordROR">
+          <Key>
+            <PropertyRef Name="SNo" />
+          </Key>
+          <Property Name="SNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VillageCd" Type="varchar" MaxLength="10" />
+          <Property Name="MandalCd" Type="varchar" MaxLength="10" />
+          <Property Name="DistrictCd" Type="varchar" MaxLength="10" />
+          <Property Name="StateCd" Type="varchar" MaxLength="10" />
+          <Property Name="SurveyNo" Type="varchar" MaxLength="10" />
+          <Property Name="LandLordCode" Type="varchar" MaxLength="10" />
+          <Property Name="LandZoneCode" Type="varchar" MaxLength="10" />
+          <Property Name="LandTitleCode" Type="varchar" MaxLength="10" />
+          <Property Name="OwnerShipType" Type="varchar" MaxLength="10" />
+          <Property Name="LandNatureCode" Type="varchar" MaxLength="10" />
+          <Property Name="Doc_No" Type="varchar" MaxLength="20" />
+          <Property Name="Doc_Date" Type="datetime" />
+          <Property Name="PT" Type="varchar" MaxLength="1" />
+          <Property Name="PT_Details" Type="varchar(max)" />
+          <Property Name="Land_Conversion" Type="varchar" MaxLength="1" />
+          <Property Name="Extent_Acres" Type="numeric" Precision="13" Scale="2" />
+          <Property Name="Extent_Guntas" Type="numeric" Precision="13" Scale="2" />
+          <Property Name="Extent_Sqyds" Type="numeric" Precision="13" Scale="2" />
+          <Property Name="TotalExtent_Acres" Type="numeric" Precision="13" Scale="2" />
+          <Property Name="TotalExtent_Guntas" Type="numeric" Precision="13" Scale="2" />
+          <Property Name="TotalExtent_Sqyds" Type="numeric" Precision="13" Scale="2" />
+          <Property Name="LL_PassbookNo" Type="varchar" MaxLength="15" />
+          <Property Name="ProceedingNo" Type="varchar" MaxLength="20" />
+          <Property Name="Spl_Category" Type="varchar" MaxLength="20" />
+          <Property Name="SurveyNo_SubLetter" Type="nvarchar" MaxLength="10" />
+          <Property Name="Flag" Type="bit" />
+          <Property Name="PurchaseType" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="varchar" MaxLength="200" />
+          <Property Name="LL_Extent_Acres" Type="numeric" Precision="13" Scale="2" />
+          <Property Name="LL_Extent_Guntas" Type="numeric" Precision="13" Scale="2" />
+          <Property Name="LL_Extent_Sqyds" Type="numeric" Precision="13" Scale="2" />
+        </EntityType>
+        <EntityType Name="LandNature">
+          <Key>
+            <PropertyRef Name="LandNatureCode" />
+          </Key>
+          <Property Name="SNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LandNatureCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="LandNatureName" Type="varchar" MaxLength="100" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="createdOn" Type="datetime" />
+          <Property Name="Modifiedby" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="LandZone">
+          <Key>
+            <PropertyRef Name="LandZoneCode" />
+          </Key>
+          <Property Name="SNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LandZoneCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="LandZoneName" Type="varchar" MaxLength="100" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Mandal">
+          <Key>
+            <PropertyRef Name="MandalCd" />
+          </Key>
+          <Property Name="MandalId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MandalCd" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="MandalName" Type="varchar" MaxLength="50" />
+          <Property Name="DistrictCd" Type="varchar" MaxLength="10" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Spl_Category">
+          <Key>
+            <PropertyRef Name="SPlCategoryId" />
+          </Key>
+          <Property Name="SPlCategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SplCategory" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="StateCd" />
+          </Key>
+          <Property Name="StateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StateCd" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="CountryCd" Type="varchar" MaxLength="10" />
+          <Property Name="StateName" Type="varchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Village">
+          <Key>
+            <PropertyRef Name="VillageId" />
+          </Key>
+          <Property Name="VillageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VillageCd" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="VillageName" Type="varchar" MaxLength="50" />
+          <Property Name="MandalCd" Type="varchar" MaxLength="10" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK__District__StateC__46486B8E">
+          <End Role="State" Type="Self.State" Multiplicity="1" />
+          <End Role="District" Type="Self.District" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="StateCd" />
+            </Principal>
+            <Dependent Role="District">
+              <PropertyRef Name="StateCd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Mandal__District__4924D839">
+          <End Role="District" Type="Self.District" Multiplicity="0..1" />
+          <End Role="Mandal" Type="Self.Mandal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="District">
+              <PropertyRef Name="DistrictCd" />
+            </Principal>
+            <Dependent Role="Mandal">
+              <PropertyRef Name="DistrictCd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Village__MandalC__4C0144E4">
+          <End Role="Mandal" Type="Self.Mandal" Multiplicity="0..1" />
+          <End Role="Village" Type="Self.Village" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mandal">
+              <PropertyRef Name="MandalCd" />
+            </Principal>
+            <Dependent Role="Village">
+              <PropertyRef Name="MandalCd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LandLordROR_Master_LandLord">
+          <End Role="LandLord" Type="Self.LandLord" Multiplicity="0..1" />
+          <End Role="LandLordROR" Type="Self.LandLordROR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LandLord">
+              <PropertyRef Name="LandLordCode" />
+            </Principal>
+            <Dependent Role="LandLordROR">
+              <PropertyRef Name="LandLordCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MILESTATESModelStoreContainer">
+          <EntitySet Name="District" EntityType="Self.District" Schema="master" store:Type="Tables" />
+          <EntitySet Name="Land_Title_Type_Master" EntityType="Self.Land_Title_Type_Master" Schema="master" store:Type="Tables" />
+          <EntitySet Name="LandLord" EntityType="Self.LandLord" Schema="master" store:Type="Tables" />
+          <EntitySet Name="LandLordROR" EntityType="Self.LandLordROR" Schema="master" store:Type="Tables" />
+          <EntitySet Name="LandNature" EntityType="Self.LandNature" Schema="master" store:Type="Tables" />
+          <EntitySet Name="LandZone" EntityType="Self.LandZone" Schema="master" store:Type="Tables" />
+          <EntitySet Name="Mandal" EntityType="Self.Mandal" Schema="master" store:Type="Tables" />
+          <EntitySet Name="Spl_Category" EntityType="Self.Spl_Category" Schema="master" store:Type="Tables" />
+          <EntitySet Name="State" EntityType="Self.State" Schema="master" store:Type="Tables" />
+          <EntitySet Name="Village" EntityType="Self.Village" Schema="master" store:Type="Tables" />
+          <AssociationSet Name="FK__District__StateC__46486B8E" Association="Self.FK__District__StateC__46486B8E">
+            <End Role="State" EntitySet="State" />
+            <End Role="District" EntitySet="District" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Mandal__District__4924D839" Association="Self.FK__Mandal__District__4924D839">
+            <End Role="District" EntitySet="District" />
+            <End Role="Mandal" EntitySet="Mandal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Village__MandalC__4C0144E4" Association="Self.FK__Village__MandalC__4C0144E4">
+            <End Role="Mandal" EntitySet="Mandal" />
+            <End Role="Village" EntitySet="Village" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LandLordROR_Master_LandLord" Association="Self.FK_LandLordROR_Master_LandLord">
+            <End Role="LandLord" EntitySet="LandLord" />
+            <End Role="LandLordROR" EntitySet="LandLordROR" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MILESTATESModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="MILESTATESEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="LandLords" EntityType="MILESTATESModel.LandLord" />
+          <EntitySet Name="Districts" EntityType="MILESTATESModel.District" />
+          <EntitySet Name="Mandals" EntityType="MILESTATESModel.Mandal" />
+          <EntitySet Name="States" EntityType="MILESTATESModel.State" />
+          <EntitySet Name="Villages" EntityType="MILESTATESModel.Village" />
+          <AssociationSet Name="FK__District__StateC__46486B8E" Association="MILESTATESModel.FK__District__StateC__46486B8E">
+            <End Role="State" EntitySet="States" />
+            <End Role="District" EntitySet="Districts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Mandal__District__4924D839" Association="MILESTATESModel.FK__Mandal__District__4924D839">
+            <End Role="District" EntitySet="Districts" />
+            <End Role="Mandal" EntitySet="Mandals" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Village__MandalC__4C0144E4" Association="MILESTATESModel.FK__Village__MandalC__4C0144E4">
+            <End Role="Mandal" EntitySet="Mandals" />
+            <End Role="Village" EntitySet="Villages" />
+          </AssociationSet>
+          <EntitySet Name="LandZones" EntityType="MILESTATESModel.LandZone" />
+          <EntitySet Name="LandNatures" EntityType="MILESTATESModel.LandNature" />
+          <EntitySet Name="Spl_Category" EntityType="MILESTATESModel.Spl_Category" />
+          <EntitySet Name="Land_Title_Type_Master" EntityType="MILESTATESModel.Land_Title_Type_Master" />
+          <EntitySet Name="LandLordRORs" EntityType="MILESTATESModel.LandLordROR" />
+          <AssociationSet Name="FK_LandLordROR_Master_LandLord" Association="MILESTATESModel.FK_LandLordROR_Master_LandLord">
+            <End Role="LandLord" EntitySet="LandLords" />
+            <End Role="LandLordROR" EntitySet="LandLordRORs" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="LandLord">
+          <Key>
+            <PropertyRef Name="LandLordCode" />
+          </Key>
+          <Property Name="LandLordId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LLType" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="LandLordCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="LLTitle" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="LandLordName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="LL_Address1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="LL_Address2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="LL_State" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="LL_District" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="LL_Mandal" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="LL_Village" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="LL_PinCode" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="LL_Phone1" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="LL_Phone2" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="LL_PAN" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="LL_Aadhar" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="LL_GST" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CIN" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="DIN" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="IncorporationDate" Type="DateTime" Precision="3" />
+          <Property Name="LL_Mail" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="D_O" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="Occupation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Designation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Rep_Off" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="LandLordRORs" Relationship="MILESTATESModel.FK_LandLordROR_Master_LandLord" FromRole="LandLord" ToRole="LandLordROR" />
+        </EntityType>
+        <EntityType Name="District">
+          <Key>
+            <PropertyRef Name="DistrictCd" />
+          </Key>
+          <Property Name="DistrictId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DistrictCd" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="DistrictName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StateCd" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="State" Relationship="MILESTATESModel.FK__District__StateC__46486B8E" FromRole="District" ToRole="State" />
+          <NavigationProperty Name="Mandals" Relationship="MILESTATESModel.FK__Mandal__District__4924D839" FromRole="District" ToRole="Mandal" />
+        </EntityType>
+        <EntityType Name="Mandal">
+          <Key>
+            <PropertyRef Name="MandalCd" />
+          </Key>
+          <Property Name="MandalId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MandalCd" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="MandalName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DistrictCd" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="District" Relationship="MILESTATESModel.FK__Mandal__District__4924D839" FromRole="Mandal" ToRole="District" />
+          <NavigationProperty Name="Villages" Relationship="MILESTATESModel.FK__Village__MandalC__4C0144E4" FromRole="Mandal" ToRole="Village" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="StateCd" />
+          </Key>
+          <Property Name="StateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StateCd" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CountryCd" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="StateName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Districts" Relationship="MILESTATESModel.FK__District__StateC__46486B8E" FromRole="State" ToRole="District" />
+        </EntityType>
+        <EntityType Name="Village">
+          <Key>
+            <PropertyRef Name="VillageId" />
+          </Key>
+          <Property Name="VillageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VillageCd" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="VillageName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MandalCd" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Mandal" Relationship="MILESTATESModel.FK__Village__MandalC__4C0144E4" FromRole="Village" ToRole="Mandal" />
+        </EntityType>
+        <Association Name="FK__District__StateC__46486B8E">
+          <End Type="MILESTATESModel.State" Role="State" Multiplicity="1" />
+          <End Type="MILESTATESModel.District" Role="District" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="StateCd" />
+            </Principal>
+            <Dependent Role="District">
+              <PropertyRef Name="StateCd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Mandal__District__4924D839">
+          <End Type="MILESTATESModel.District" Role="District" Multiplicity="0..1" />
+          <End Type="MILESTATESModel.Mandal" Role="Mandal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="District">
+              <PropertyRef Name="DistrictCd" />
+            </Principal>
+            <Dependent Role="Mandal">
+              <PropertyRef Name="DistrictCd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Village__MandalC__4C0144E4">
+          <End Type="MILESTATESModel.Mandal" Role="Mandal" Multiplicity="0..1" />
+          <End Type="MILESTATESModel.Village" Role="Village" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mandal">
+              <PropertyRef Name="MandalCd" />
+            </Principal>
+            <Dependent Role="Village">
+              <PropertyRef Name="MandalCd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="LandZone">
+          <Key>
+            <PropertyRef Name="LandZoneCode" />
+          </Key>
+          <Property Name="SNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LandZoneCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="LandZoneName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="LandNature">
+          <Key>
+            <PropertyRef Name="LandNatureCode" />
+          </Key>
+          <Property Name="SNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LandNatureCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="LandNatureName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="createdOn" Type="DateTime" Precision="3" />
+          <Property Name="Modifiedby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Spl_Category">
+          <Key>
+            <PropertyRef Name="SPlCategoryId" />
+          </Key>
+          <Property Name="SPlCategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SplCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Land_Title_Type_Master">
+          <Key>
+            <PropertyRef Name="LandTitleCode" />
+          </Key>
+          <Property Name="SNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LandTitleCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="LandTitleName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="LandLordROR">
+          <Key>
+            <PropertyRef Name="SNo" />
+          </Key>
+          <Property Name="SNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VillageCd" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="MandalCd" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="DistrictCd" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="StateCd" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="SurveyNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="LandLordCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="LandZoneCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="LandTitleCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="OwnerShipType" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="LandNatureCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Doc_No" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Doc_Date" Type="DateTime" Precision="3" />
+          <Property Name="PT" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="PT_Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Land_Conversion" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Extent_Acres" Type="Decimal" Precision="13" Scale="2" />
+          <Property Name="Extent_Guntas" Type="Decimal" Precision="13" Scale="2" />
+          <Property Name="Extent_Sqyds" Type="Decimal" Precision="13" Scale="2" />
+          <Property Name="TotalExtent_Acres" Type="Decimal" Precision="13" Scale="2" />
+          <Property Name="TotalExtent_Guntas" Type="Decimal" Precision="13" Scale="2" />
+          <Property Name="TotalExtent_Sqyds" Type="Decimal" Precision="13" Scale="2" />
+          <Property Name="LL_PassbookNo" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="ProceedingNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Spl_Category" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SurveyNo_SubLetter" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Flag" Type="Boolean" />
+          <Property Name="PurchaseType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="LL_Extent_Acres" Type="Decimal" Precision="13" Scale="2" />
+          <Property Name="LL_Extent_Guntas" Type="Decimal" Precision="13" Scale="2" />
+          <Property Name="LL_Extent_Sqyds" Type="Decimal" Precision="13" Scale="2" />
+          <NavigationProperty Name="LandLord" Relationship="MILESTATESModel.FK_LandLordROR_Master_LandLord" FromRole="LandLordROR" ToRole="LandLord" />
+        </EntityType>
+        <Association Name="FK_LandLordROR_Master_LandLord">
+          <End Type="MILESTATESModel.LandLord" Role="LandLord" Multiplicity="0..1" />
+          <End Type="MILESTATESModel.LandLordROR" Role="LandLordROR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LandLord">
+              <PropertyRef Name="LandLordCode" />
+            </Principal>
+            <Dependent Role="LandLordROR">
+              <PropertyRef Name="LandLordCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MILESTATESModelStoreContainer" CdmEntityContainer="MILESTATESEntities">
+          <EntitySetMapping Name="LandLords">
+            <EntityTypeMapping TypeName="MILESTATESModel.LandLord">
+              <MappingFragment StoreEntitySet="LandLord">
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Rep_Off" ColumnName="Rep_Off" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="Occupation" ColumnName="Occupation" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="D_O" ColumnName="D/O" />
+                <ScalarProperty Name="LL_Mail" ColumnName="LL_Mail" />
+                <ScalarProperty Name="IncorporationDate" ColumnName="IncorporationDate" />
+                <ScalarProperty Name="DIN" ColumnName="DIN" />
+                <ScalarProperty Name="CIN" ColumnName="CIN" />
+                <ScalarProperty Name="LL_GST" ColumnName="LL_GST" />
+                <ScalarProperty Name="LL_Aadhar" ColumnName="LL_Aadhar" />
+                <ScalarProperty Name="LL_PAN" ColumnName="LL_PAN" />
+                <ScalarProperty Name="LL_Phone2" ColumnName="LL_Phone2" />
+                <ScalarProperty Name="LL_Phone1" ColumnName="LL_Phone1" />
+                <ScalarProperty Name="LL_PinCode" ColumnName="LL_PinCode" />
+                <ScalarProperty Name="LL_Village" ColumnName="LL_Village" />
+                <ScalarProperty Name="LL_Mandal" ColumnName="LL_Mandal" />
+                <ScalarProperty Name="LL_District" ColumnName="LL_District" />
+                <ScalarProperty Name="LL_State" ColumnName="LL_State" />
+                <ScalarProperty Name="LL_Address2" ColumnName="LL_Address2" />
+                <ScalarProperty Name="LL_Address1" ColumnName="LL_Address1" />
+                <ScalarProperty Name="LandLordName" ColumnName="LandLordName" />
+                <ScalarProperty Name="LLTitle" ColumnName="LLTitle" />
+                <ScalarProperty Name="LandLordCode" ColumnName="LandLordCode" />
+                <ScalarProperty Name="LLType" ColumnName="LLType" />
+                <ScalarProperty Name="LandLordId" ColumnName="LandLordId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Districts">
+            <EntityTypeMapping TypeName="MILESTATESModel.District">
+              <MappingFragment StoreEntitySet="District">
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="StateCd" ColumnName="StateCd" />
+                <ScalarProperty Name="DistrictName" ColumnName="DistrictName" />
+                <ScalarProperty Name="DistrictCd" ColumnName="DistrictCd" />
+                <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mandals">
+            <EntityTypeMapping TypeName="MILESTATESModel.Mandal">
+              <MappingFragment StoreEntitySet="Mandal">
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="DistrictCd" ColumnName="DistrictCd" />
+                <ScalarProperty Name="MandalName" ColumnName="MandalName" />
+                <ScalarProperty Name="MandalCd" ColumnName="MandalCd" />
+                <ScalarProperty Name="MandalId" ColumnName="MandalId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="States">
+            <EntityTypeMapping TypeName="MILESTATESModel.State">
+              <MappingFragment StoreEntitySet="State">
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+                <ScalarProperty Name="CountryCd" ColumnName="CountryCd" />
+                <ScalarProperty Name="StateCd" ColumnName="StateCd" />
+                <ScalarProperty Name="StateId" ColumnName="StateId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Villages">
+            <EntityTypeMapping TypeName="MILESTATESModel.Village">
+              <MappingFragment StoreEntitySet="Village">
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="MandalCd" ColumnName="MandalCd" />
+                <ScalarProperty Name="VillageName" ColumnName="VillageName" />
+                <ScalarProperty Name="VillageCd" ColumnName="VillageCd" />
+                <ScalarProperty Name="VillageId" ColumnName="VillageId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LandZones">
+            <EntityTypeMapping TypeName="MILESTATESModel.LandZone">
+              <MappingFragment StoreEntitySet="LandZone">
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="LandZoneName" ColumnName="LandZoneName" />
+                <ScalarProperty Name="LandZoneCode" ColumnName="LandZoneCode" />
+                <ScalarProperty Name="SNo" ColumnName="SNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LandNatures">
+            <EntityTypeMapping TypeName="MILESTATESModel.LandNature">
+              <MappingFragment StoreEntitySet="LandNature">
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="Modifiedby" ColumnName="Modifiedby" />
+                <ScalarProperty Name="createdOn" ColumnName="createdOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="LandNatureName" ColumnName="LandNatureName" />
+                <ScalarProperty Name="LandNatureCode" ColumnName="LandNatureCode" />
+                <ScalarProperty Name="SNo" ColumnName="SNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Spl_Category">
+            <EntityTypeMapping TypeName="MILESTATESModel.Spl_Category">
+              <MappingFragment StoreEntitySet="Spl_Category">
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="SplCategory" ColumnName="SplCategory" />
+                <ScalarProperty Name="SPlCategoryId" ColumnName="SPlCategoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Land_Title_Type_Master">
+            <EntityTypeMapping TypeName="MILESTATESModel.Land_Title_Type_Master">
+              <MappingFragment StoreEntitySet="Land_Title_Type_Master">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="LandTitleName" ColumnName="LandTitleName" />
+                <ScalarProperty Name="LandTitleCode" ColumnName="LandTitleCode" />
+                <ScalarProperty Name="SNo" ColumnName="SNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LandLordRORs">
+            <EntityTypeMapping TypeName="MILESTATESModel.LandLordROR">
+              <MappingFragment StoreEntitySet="LandLordROR">
+                <ScalarProperty Name="LL_Extent_Sqyds" ColumnName="LL_Extent_Sqyds" />
+                <ScalarProperty Name="LL_Extent_Guntas" ColumnName="LL_Extent_Guntas" />
+                <ScalarProperty Name="LL_Extent_Acres" ColumnName="LL_Extent_Acres" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="PurchaseType" ColumnName="PurchaseType" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="SurveyNo_SubLetter" ColumnName="SurveyNo_SubLetter" />
+                <ScalarProperty Name="Spl_Category" ColumnName="Spl_Category" />
+                <ScalarProperty Name="ProceedingNo" ColumnName="ProceedingNo" />
+                <ScalarProperty Name="LL_PassbookNo" ColumnName="LL_PassbookNo" />
+                <ScalarProperty Name="TotalExtent_Sqyds" ColumnName="TotalExtent_Sqyds" />
+                <ScalarProperty Name="TotalExtent_Guntas" ColumnName="TotalExtent_Guntas" />
+                <ScalarProperty Name="TotalExtent_Acres" ColumnName="TotalExtent_Acres" />
+                <ScalarProperty Name="Extent_Sqyds" ColumnName="Extent_Sqyds" />
+                <ScalarProperty Name="Extent_Guntas" ColumnName="Extent_Guntas" />
+                <ScalarProperty Name="Extent_Acres" ColumnName="Extent_Acres" />
+                <ScalarProperty Name="Land_Conversion" ColumnName="Land_Conversion" />
+                <ScalarProperty Name="PT_Details" ColumnName="PT_Details" />
+                <ScalarProperty Name="PT" ColumnName="PT" />
+                <ScalarProperty Name="Doc_Date" ColumnName="Doc_Date" />
+                <ScalarProperty Name="Doc_No" ColumnName="Doc_No" />
+                <ScalarProperty Name="LandNatureCode" ColumnName="LandNatureCode" />
+                <ScalarProperty Name="OwnerShipType" ColumnName="OwnerShipType" />
+                <ScalarProperty Name="LandTitleCode" ColumnName="LandTitleCode" />
+                <ScalarProperty Name="LandZoneCode" ColumnName="LandZoneCode" />
+                <ScalarProperty Name="LandLordCode" ColumnName="LandLordCode" />
+                <ScalarProperty Name="SurveyNo" ColumnName="SurveyNo" />
+                <ScalarProperty Name="StateCd" ColumnName="StateCd" />
+                <ScalarProperty Name="DistrictCd" ColumnName="DistrictCd" />
+                <ScalarProperty Name="MandalCd" ColumnName="MandalCd" />
+                <ScalarProperty Name="VillageCd" ColumnName="VillageCd" />
+                <ScalarProperty Name="SNo" ColumnName="SNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

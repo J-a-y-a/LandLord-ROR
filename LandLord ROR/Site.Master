@@ -1,0 +1,284 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="LandLord_ROR.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - My ASP.NET Application</title>
+
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+     <link rel="stylesheet" href="StyleSheet1.css" />
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+         .sidebar {
+        border-top-color:slateblue;
+        /*margin:6px;*/
+        top: 55px;
+        background-color: deepskyblue;
+        padding: 0px;
+        width: 250px;
+        /*background-color: #f1f1f1;*/
+        position: absolute;
+        height: 100%;
+        overflow: auto;
+    }
+         #mnu123 img.icon {
+    border-style: none;
+    vertical-align: middle;
+    width: 20px;
+}
+         #mnu123 ul ul a{
+             font-size: 15px;
+}
+
+    .sidebar a {
+        display: block;
+        padding: 16px;
+        text-decoration: none;
+        font-size: 18px;
+        display: inline-block;
+        /*vertical-align: middle;*/
+        color: #FFFFFF;
+        padding-right: 40px !important;
+    }
+
+        .sidebar a.active {
+            background-color: #04AA6D;
+            color: white;
+        }
+
+        .sidebar a:hover:not(.active) {
+            background-color: #555;
+            color: white;
+        }
+
+
+
+    @media screen and (max-width: 700px) {
+        .sidebar {
+            width: 250px;
+            height: auto;
+            position: relative;
+        }
+
+            .sidebar a {
+                float: left;
+            }
+
+        div.content {
+            margin-left: 0;
+        }
+    }
+
+    @media screen and (max-width: 400px) {
+        .sidebar a {
+            text-align: center;
+            float: none;
+        }
+    }
+    hr {
+        box-sizing: content-box;
+        height: 10px;
+        overflow: visible;
+        width: 119%;
+    }
+    </style>
+    
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+      <%--  <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" runat="server" href="~/">Application name</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a runat="server" href="~/">Home</a></li>
+                        <li><a runat="server" href="~/About">About</a></li>
+                        <li><a runat="server" href="~/Contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>--%>
+        <header>
+            <div class="col-md-9">
+                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="true" IncludeStyleBlock="true" Orientation="Horizontal"  StaticSubMenuIndent="10px">
+
+
+                <Items>
+                    <asp:MenuItem Text="" NavigateUrl="~/image.jpg" ImageUrl="~/logo.jpg"></asp:MenuItem>
+                    <asp:MenuItem Text="Realestate" NavigateUrl="~/File.aspx" />
+                    <asp:MenuItem Text="Home" NavigateUrl="~/Default.aspx" />
+                    <asp:MenuItem Text="Search" NavigateUrl="~/Search.aspx" />
+                    <asp:MenuItem Text="Menu" NavigateUrl="~/Default.aspx">
+                        <asp:MenuItem Text="Menu1">
+                            <asp:MenuItem Text="Submenu 1" />
+                            <asp:MenuItem Text="Submenu 2" />
+                            <asp:MenuItem Text="Submenu 3" />
+                            <asp:MenuItem Text="Submenu 4" />
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Menu2">
+                            <asp:MenuItem Text="Submenu 1" />
+                            <asp:MenuItem Text="Submenu 2" />
+                            <asp:MenuItem Text="Submenu 3" />
+                            <asp:MenuItem Text="Submenu 4" />
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Menu3">
+                            <asp:MenuItem Text="Submenu 1" />
+                            <asp:MenuItem Text="Submenu 2" />
+                            <asp:MenuItem Text="Submenu 3" />
+                            <asp:MenuItem Text="Submenu 4" />
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Menu4">
+                            <asp:MenuItem Text="Submenu 1" />
+                            <asp:MenuItem Text="Submenu 2" />
+                            <asp:MenuItem Text="Submenu 3" />
+                            <asp:MenuItem Text="Submenu 4" />
+                        </asp:MenuItem>
+                    </asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="#" Text="    " />
+                    <asp:MenuItem NavigateUrl="#" Text="    " />
+                    <asp:MenuItem NavigateUrl="#" Text="    " />
+                    <asp:MenuItem NavigateUrl="#" Text="    " />
+                    <asp:MenuItem NavigateUrl="#" Text="     " />
+                    <asp:MenuItem NavigateUrl="#" Text="      " />
+                    <asp:MenuItem NavigateUrl="#" Text="    " />
+                    <asp:MenuItem NavigateUrl="#" Text="     " />
+                    <asp:MenuItem NavigateUrl="#" Text="      " />
+                    <asp:MenuItem NavigateUrl="#" Text="  " />
+                    <asp:MenuItem NavigateUrl="#" Text="  " />
+                    <asp:MenuItem NavigateUrl="#" Text=" " />
+                    <asp:MenuItem NavigateUrl="#" Text=" " />
+                    <asp:MenuItem NavigateUrl="#" Text=" " />
+                    <asp:MenuItem NavigateUrl="#" Text=" " />
+                    <asp:MenuItem NavigateUrl="#" Text=" " />
+                    <asp:MenuItem NavigateUrl="#" Text=" " />
+                    <asp:MenuItem NavigateUrl="#" Text=" " />
+                    <asp:MenuItem NavigateUrl="#" Text=" " />
+                    <asp:MenuItem NavigateUrl="#" Text=" " />
+                    <asp:MenuItem NavigateUrl="#" Text=" " />
+                    <asp:MenuItem NavigateUrl="#" Text=" " />
+                    <asp:MenuItem NavigateUrl="#" Text=" " />
+                    <asp:MenuItem NavigateUrl="#" Text=" " />
+                    <asp:MenuItem NavigateUrl="#" Text=" " />
+                    <asp:MenuItem NavigateUrl="#" Text=" " />
+                    <asp:MenuItem NavigateUrl="#" Text=" " />
+                    </Items>
+            </asp:Menu>
+                </div>
+     
+                    <%--     </div>--%>
+                     <div  class="col-md-3" style="float:right;">
+                    <asp:Menu ID="mnu123" runat="server" Orientation="Horizontal"  CssClass="menu" IncludeStyleBlock="true">
+                <Items>
+                    <asp:MenuItem Text="Change Password" NavigateUrl="~/Default.aspx" />
+                    <asp:MenuItem Text="Logout" NavigateUrl="~/Default.aspx" />
+                    <asp:MenuItem Text="Rose" NavigateUrl="~/Default.aspx" ImageUrl="~/rose.jpg"></asp:MenuItem>
+                         
+                </Items>
+            </asp:Menu>
+                         </div>
+             </header>
+            <div class="sidebar" style="float:left">
+            <asp:Menu ID="Menu1" runat="server" EnableViewState="true" IncludeStyleBlock="true" Orientation="Vertical" CssClass="menu1">
+                <Items>
+             <asp:MenuItem Text="Dashboard" NavigateUrl="~/File.aspx" >
+                 <asp:MenuItem NavigateUrl="#" Text="Default" />
+                    <asp:MenuItem NavigateUrl="#" Text="CRM" />
+                    <asp:MenuItem NavigateUrl="#" Text="Analytics" />
+             </asp:MenuItem>
+                    <asp:MenuItem  NavigateUrl="~/Default.aspx"   Text="Page Layouts <asp:Button runat=">
+                        <asp:MenuItem NavigateUrl="#" Text="Vertical" />
+                    <asp:MenuItem NavigateUrl="#" Text="Horizontal" />
+                    <asp:MenuItem NavigateUrl="#" Text=" Bottom Menu" />
+                    <asp:MenuItem NavigateUrl="#" Text="Box Layout " />
+                    <asp:MenuItem NavigateUrl="#" Text="RTL" />
+                    </asp:MenuItem>
+                    <asp:MenuItem Text="Navigation" NavigateUrl="~/Search.aspx"></asp:MenuItem>
+                    <asp:MenuItem Text="Widget" NavigateUrl="~/Default.aspx">
+                            <asp:MenuItem Text="Statistic" />
+                            <asp:MenuItem Text="Data" />
+                            <asp:MenuItem Text="Char Widget" />
+                        </asp:MenuItem>
+                    <asp:MenuItem Text="Basic Components">
+                            <asp:MenuItem Text="Alert" />
+                            <asp:MenuItem Text="Breadcrumbs" />
+                            <asp:MenuItem Text="Tabs" />
+                            <asp:MenuItem Text="Colour" />
+                        </asp:MenuItem>
+                    <asp:MenuItem Text="Advance Components">
+                        <asp:MenuItem Text="Draggable" />
+                        <asp:MenuItem Text="Grid Stack" />
+                    </asp:MenuItem>
+                    <asp:MenuItem Text="Icons">
+                        <asp:MenuItem Text="Font Awesome" />
+                        <asp:MenuItem Text="Themify" />
+                    </asp:MenuItem>
+                        </Items>
+                        </asp:Menu>
+            </div>
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+
+            </asp:ContentPlaceHolder>
+            </div>
+            
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $('#myModal').modal('hide'); // Hide the modal on page load
+    });
+
+    function openModal() {
+        $('#myModal').modal('show'); // Show the modal when the button is clicked
+    }
+</script>
+            <hr />
+             <div id="footer" style="position: fixed; bottom: 0px;">
+            <footer>
+
+                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+            </footer>
+        </div>
+        <%--</div>--%>
+
+    </form>
+</body>
+</html>
+

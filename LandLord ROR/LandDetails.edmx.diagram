@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ed16aa309e9c4734b30d264355ff294d" Name="Diagram1" ZoomLevel="91">
+        <EntityTypeShape EntityType="MILESTATESModel.LandLord" Width="1.5" PointX="0.75" PointY="9.875" />
+        <EntityTypeShape EntityType="MILESTATESModel.District" Width="1.5" PointX="5.625" PointY="1" />
+        <EntityTypeShape EntityType="MILESTATESModel.Mandal" Width="1.5" PointX="7.875" PointY="1" />
+        <EntityTypeShape EntityType="MILESTATESModel.State" Width="1.5" PointX="3.375" PointY="1.125" />
+        <EntityTypeShape EntityType="MILESTATESModel.Village" Width="1.5" PointX="10.125" PointY="1.125" />
+        <AssociationConnector Association="MILESTATESModel.FK__District__StateC__46486B8E" />
+        <AssociationConnector Association="MILESTATESModel.FK__Mandal__District__4924D839" />
+        <AssociationConnector Association="MILESTATESModel.FK__Village__MandalC__4C0144E4" />
+        <EntityTypeShape EntityType="MILESTATESModel.LandZone" Width="1.5" PointX="3.375" PointY="5.75" />
+        <EntityTypeShape EntityType="MILESTATESModel.LandNature" Width="1.5" PointX="5.375" PointY="5.75" />
+        <EntityTypeShape EntityType="MILESTATESModel.Spl_Category" Width="1.5" PointX="7.375" PointY="5.75" />
+        <EntityTypeShape EntityType="MILESTATESModel.Land_Title_Type_Master" Width="1.5" PointX="9.375" PointY="5.75" />
+        <EntityTypeShape EntityType="MILESTATESModel.LandLordROR" Width="1.5" PointX="3" PointY="9.75" />
+        <AssociationConnector Association="MILESTATESModel.FK_LandLordROR_Master_LandLord" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

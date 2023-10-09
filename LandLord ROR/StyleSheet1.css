@@ -1,0 +1,168 @@
+﻿header {
+    /*background-color: #8AE0F2;*/
+    background-color: deepskyblue;
+    /*background-color:slateblue;*/
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    margin-right: 0px;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    /*height:100px;*/
+    /*display: flex;
+                justify-content: center;
+               align-items: center;*/
+}
+
+.menu a {
+    font-size: 18px;
+    display: inline-block;
+    vertical-align: middle;
+    color: #FFFFFF;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .menu img {
+        height: 30px;
+        width: 80px;
+        /*border-radius: 70%;*/
+    }
+
+    .menu ul {
+        /*padding: 0px;*/
+        display: flex; /*to rightside display*/
+    }
+
+    .menu li {
+        display: inline-block;
+        margin-right: 20px;
+        /*color: #00CED1;*/
+        text-align: center;
+    }
+
+    .menu a:hover {
+        background-color: aliceblue;
+    }
+
+.level2 {
+    background-color: deepskyblue;
+    font-size: smaller;
+    display: inline-block;
+    line-height: 40px;
+}
+
+.level3 {
+    background-color: deepskyblue;
+    font-size: small;
+}
+
+.menu a {
+    /*background-color:#8AE0F2;*/
+    top: 25px;
+    color: #FFFFFF;
+    text-align: center;
+    font-variant-position: normal;
+}
+
+#NavigationMenu a.popout {
+    padding-right: 40px !important;
+}
+
+.menu ul ul a {
+    font-size: 15px;
+}
+#mnu123 ul ul a {
+    font-size: 15px;
+}
+
+.menu ul ul li {
+    width: 88px;
+    top: 0px;
+}
+
+.menu ul ul {
+    /*background-color: #ccc;*/ /* Set background color for submenu */
+    /*border: 1px solid #ccc;*/ /* Add border to submenu */
+    top: 50px;
+    right: 0;
+    padding: 5px 10px;
+}
+
+.menu li li {
+    top: 5px;
+}
+
+.menu ul ul ul a {
+    font-size: 13px;
+    /*top: 10px;*/
+}
+
+
+@media (max-width: 767px) {
+    .menu {
+        flex-wrap: wrap;
+    }
+
+        .menu li {
+            display: block;
+            margin: 0px;
+        }
+
+        .menu ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 1;
+        }
+
+            .menu ul ul {
+                position: static;
+                border: none;
+                padding: 0;
+            }
+
+            .menu ul li {
+                width: 100%;
+                text-align: center;
+                background-color: #0000FF;
+                margin-bottom: 5px;
+            }
+
+            .menu ul ul li {
+                margin-left: 10px;
+            }
+
+            .menu ul ul ul li {
+                margin-left: 20px;
+            }
+
+        .menu li:hover > ul {
+            display: block;
+        }
+
+        .menu ul ul {
+            margin-left: 10px;
+        }
+
+   
+
+    hr {
+        box-sizing: content-box;
+        height: 10px;
+        overflow: visible;
+        width: 119%;
+    }
+    .modal {
+        position: relative;
+        z-index: 9999
+    }
+}
